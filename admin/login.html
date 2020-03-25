@@ -37,7 +37,37 @@
       </form>
     </div>
   </div>
-
+  <script>
+    $(function(){
+      $('.input_sub').click(function(e){
+        e.preventDefault();
+        var username = $('.input_txt').val().trim();
+        // trim() 字符串两端去掉空格
+        var password = $('.input_pass').val().trim();
+        if(username === '' || password === ''){
+          alert("usernamer and password can't be empty");
+          return; 
+        }
+        $.ajax({
+          url: 'http://localhost:8080/api/v1/admin/user/login',
+          type: 'POST',
+          data: {
+            username,
+            password
+          },
+          dataType: 'json',
+          success: function(res){
+            if(res.code === 400){
+              alert(res.msg)
+            }else if(res.code === 200){
+              // alert(res.msg);
+              window.location.href = './index.html';
+            }
+          }
+        })
+      })
+    })
+  </script>
 </body>
 
 </html>
