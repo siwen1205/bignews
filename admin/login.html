@@ -61,6 +61,8 @@
               alert(res.msg)
             }else if(res.code === 200){
               // alert(res.msg);
+              //把返回数据中的 token 保存在 localStorage 中
+              window.localStorage.setItem('token', res.token);
               window.location.href = './index.html';
             }
           }
