@@ -58,8 +58,17 @@
         $(function(){
             $('.level01:eq(1)').click(function(){
                 $(this).next('.level02').slideToggle();
+
             })
+        });
+
+        $('.level01').click(function(){
+            $(this).addClass('active').siblings().removeClass('active');
         })
+
+        $('.icon-previewright').click(function(){
+                    $(this).addClass('active').siblings().removeClass('active');
+                })
     </script>
 </body>
 </html>
